@@ -29,6 +29,8 @@ $(document).ready(function () {
         console.log('Attempted POST /songs, did not work');
       }
     });
+    $('#song-form').find("input[type=text]").val("");
+    $('#title').focus();
   });
 
 function getSongs() {
@@ -38,7 +40,8 @@ function getSongs() {
     success: function (songs) {
       $('#song-list').empty();
       songs.forEach(function (song) {
-        $('#song-list').append('<div>' + song.title + '-' + song.artist + '</div>');
+        $('#song-list').append('<div> ' + song.title + ' By ' + song.artist +  ' Added on: ' + song.date + '</div>');
+        console.log(songs);
       });
     },
 
